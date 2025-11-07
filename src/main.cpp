@@ -18,13 +18,19 @@ int main()
 	constexpr int screenHeight = 720;
 
 	InitWindow(screenWidth, screenHeight, "Game");
-	SetTargetFPS(60);
+	SetTargetFPS(75);
 
-	Ball ball(screenWidth / 2.0f, screenHeight / 2.0f, 13.0f);
-	ball.SetSpeed(8.0f, 6.0f);
+	Ball ball(screenWidth / 2.0f, screenHeight / 2.0f, 10.0f);
+	ball.SetSpeed(7.5f, 5.5f);
 
-	Paddle player(20.0f, 120.0f, 8.0f, GetScreenWidth() - 25.0f - 10, GetScreenHeight() / 2.0f - 120.0f / 2.0f);
-	CpuPaddle cpu(20.0f, 120.0f, 6.5, 10, screenHeight / 2.0f - 120 / 2.0f);
+	Paddle player(18.0f, 110.0f, 7.0f, // width, height, speed
+    GetScreenWidth() - 18.0f - 20, // X
+    GetScreenHeight() / 2.0f - 110.0f / 2.0f); // Y
+
+	CpuPaddle cpu(18.0f, 110.0f, 6.3f, // width, height, speed
+    20, // X
+    GetScreenHeight() / 2.0f - 110.0f / 2.0f); // Y
+
 
 	while (!WindowShouldClose())
 	{

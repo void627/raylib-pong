@@ -57,7 +57,15 @@ void Ball::Update(int& PlayerScore, int& CPUScore)
 void Ball::CheckCollision(const Rectangle& rectangle)
 {
 	if (CheckCollisionCircleRec({m_x, m_y}, m_radius, rectangle))
-		m_speedX *= -1;
+	 {
+        m_speedX *= -1;
+
+        if (m_speedX > 0)
+            m_x = rectangle.x + rectangle.width + m_radius;
+        else
+            m_x = rectangle.x - m_radius;
+    }
+
 }
 
 void Ball::Reset()
